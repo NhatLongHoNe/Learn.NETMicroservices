@@ -1,0 +1,21 @@
+# run docker file
+# docker build -t nhatne/platformservice . : build a image
+docker build -t <username>/platformservice .
+
+# docker run -p 8080:8080 -d nhatne/platformservice : run a container
+docker run -p 8080:8080 -d <username>/platformservice
+
+# docker ps: list all running containers
+docker ps
+
+# docker stop <container_id> : stop a container
+docker stop <container_id>
+
+# docker rm <container_id> : remove a container
+docker rm <container_id>
+
+# docker start <container_id> : start a container
+docker start <container_id>
+
+# docker push nhatne/platformservice : push a image to docker hub
+docker push <username>/platformservice
