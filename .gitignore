@@ -183,3 +183,7 @@
 /PlatformService/.vs
 /PlatformService/bin
 /PlatformService/obj
+/CommandsService/obj
+/CommandsService/bin
+/CommandsService/.vs
+/CommandsService/.vscode
