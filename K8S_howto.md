@@ -7,6 +7,7 @@
 # 2. kubectl apply -f platforms-depl.yaml : apply the deployment
 - kubectl apply -f platforms-depl.yaml
 - kubectl apply -f platforms-np-srv.yaml
+- kubectl apply -f commands-depl.yaml
 
 # 3. check deployments : check the deployment
 - kubectl get deployments
@@ -21,8 +22,12 @@
 # 6. check services
 - kubectl get services
 
+# 7. rollout restart
+- kubectl rollout restart deployment platforms-depl
+
 # check k8s cluster info
 - kubectl cluster-info
+
 
 # check nodes
 - kubectl get nodes
