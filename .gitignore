@@ -187,3 +187,4 @@
 /CommandsService/bin
 /CommandsService/.vs
 /CommandsService/.vscode
+/PlatformService/.vscode
