@@ -9,6 +9,8 @@
 - kubectl apply -f platforms-np-srv.yaml
 - kubectl apply -f commands-depl.yaml
 - kubectl apply -f ingress-srv.yaml
+- kubectl apply -f local-pvc.yaml
+- kubectl apply -f mssql-plat-depl.yaml
 
 # 3. check deployments : check the deployment
 - kubectl get deployments
@@ -19,6 +21,9 @@
 # 5. delete deployment
 - kubectl delete deployment platforms-depl
 - kubectl delete service platformnpservice-srv
+- kubectl delete deployment mssql-depl
+- kubectl delete service mssql-clusterip-srv
+- kubectl delete service mssql-loadbalancer
 
 # 6. check services
 - kubectl get services
@@ -35,22 +40,18 @@
 # 10. check ingress-nginx
 - kubectl get pods --namespace=ingress-nginx
 
+# 11. check storageclass
+- kubectl get storageclass
 
-# check k8s cluster info
-- kubectl cluster-info
+# 12. check pvc
+- kubectl get pvc
 
+# 12.1 delete pvc
+- kubectl delete pvc msssql-claim
 
-# check nodes
-- kubectl get nodes
+# 13. create secret
+- kubectl create secret generic mssql-secret --from-literal=SA_PASSWORD='pa55w0rd!'
+- kubectl create secret generic mssql --from-literal=SA_PASSWORD="YourStrong@Passw0rd"
 
-
-
-# check events
-- kubectl get events
-
-# check configmaps
-- kubectl get configmaps
-
-# check secrets
-- kubectl get secrets
-
+# 14. check secret
+- kubectl get secret

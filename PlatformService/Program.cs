@@ -6,7 +6,16 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase("InMem"));
+// if (builder.Environment.IsProduction())
+// {
+Console.WriteLine("--> Using MSSQL DB");
+builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("PlatformsConn")));
+// }
+// else
+// {
+//     Console.WriteLine("--> Using InMem DB");
+//     builder.Services.AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase("InMem"));
+// }
 builder.Services.AddScoped<IPlatformRepo, PlatformRepo>();
 
 builder.Services.AddControllers();
@@ -30,6 +39,6 @@ if (app.Environment.IsDevelopment())
 app.MapControllers();
 
 
-PrepDb.PrepPopulation(app);
+//PrepDb.PrepPopulation(app, app.Environment.IsProduction());
 
 app.Run();

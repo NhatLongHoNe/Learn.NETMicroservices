@@ -22,3 +22,8 @@ docker start <container_id>
 # docker push nhatne/platformservice : push a image to docker hub
 # docker push nhatne/commandservice
 docker push <username>/platformservice
+
+--------------------------------
+# Migration
+dotnet ef migrations add InitialCreate --project PlatformService.csproj --startup-project PlatformService.csproj
+dotnet ef database update --project PlatformService.csproj --startup-project PlatformService.csproj
